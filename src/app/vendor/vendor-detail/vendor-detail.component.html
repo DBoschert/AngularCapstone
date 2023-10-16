@@ -1,0 +1,44 @@
+
+<h2 class="title">{{ title }}</h2>
+<table>
+    <thead>
+        <tr>
+            <td>Id</td>
+            <td><input id="pid" type="text" value="0" disabled></td>
+        </tr>
+        <tr>
+            <td>Code</td>
+            <td><input [(ngModel)]="vend.code" readonly></td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td><input [(ngModel)]="vend.name" readonly></td>
+        </tr>
+        <tr>
+            <td>Address</td>
+            <td><input [(ngModel)]="vend.address" readonly></td>
+        </tr>
+        <tr>
+            <td>City</td>
+            <td><input [(ngModel)]="vend.city" readonly></td>
+        </tr>
+        <tr>
+            <td>State</td>
+            <td><input [(ngModel)]="vend.state" readonly></td>
+        </tr>
+        <tr>
+            <td>Zip</td>
+            <td><input [(ngModel)]="vend.zip" readonly></td>
+        </tr>
+        <tr>
+            <td>Phone</td>
+            <td><input [(ngModel)]="vend.phone" readonly></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><input [(ngModel)]="vend.email" readonly></td>
+        </tr>
+    </thead>
+</table>
+
+<button (click)="delete()">DELETE</button>

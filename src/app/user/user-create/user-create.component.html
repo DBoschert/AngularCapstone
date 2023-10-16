@@ -1,0 +1,44 @@
+
+<h2 class="title">{{ title }}</h2>
+<table>
+    <thead>
+        <tr>
+            <td>Id</td>
+            <td><input id="pid" type="text" value="0" disabled></td>
+        </tr>
+        <tr>
+            <td>Username</td>
+            <td><input [(ngModel)]="user.username"></td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td><input [(ngModel)]="user.password"></td>
+        </tr>
+        <tr>
+            <td>Firstname</td>
+            <td><input [(ngModel)]="user.firstname"></td>
+        </tr>
+        <tr>
+            <td>Lastname</td>
+            <td><input [(ngModel)]="user.lastname"></td>
+        </tr>
+        <tr>
+            <td>Phone</td>
+            <td><input [(ngModel)]="user.phone"></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><input [(ngModel)]="user.email"></td>
+        </tr>
+        <tr>
+            <td>IsReviewer</td>
+            <td><input [(ngModel)]="user.isReviewer" type="checkbox"></td>
+        </tr>
+        <tr>
+            <td>IsAdmin</td>
+            <td><input [(ngModel)]="user.isAdmin" type="checkbox"></td>
+        </tr>
+    </thead>
+</table>
+
+<button (click)="save()">Confirm</button>

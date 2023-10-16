@@ -1,0 +1,40 @@
+<div>
+
+    <h2 class="title">{{ title }} | </h2>
+    <input [(ngModel)]="substr" placeholder="Search"> <br>
+    <a href="/user/user-create">CREATE</a>
+    <table class="table table-sm table-striped">
+        <thead>
+            <tr>
+                <th><button (click)="sortOrder('id')" class="btn btn-link">Id</button></th>
+                <th><button (click)="sortOrder('username')" class="btn btn-link">Username</button></th>
+                <th><button (click)="sortOrder('password')" class="btn btn-link">Password</button></th>
+                <th><button (click)="sortOrder('firstname')" class="btn btn-link">Firtname</button></th>
+                <th><button (click)="sortOrder('lastname')" class="btn btn-link">Lastname</button></th>
+                <th><button (click)="sortOrder('phone')" class="btn btn-link">Phone</button></th>
+                <th><button (click)="sortOrder('email')" class="btn btn-link">Email</button></th>
+                <th><button (click)="sortOrder('isReviewer')" class="btn btn-link">IsReviewer</button></th>
+                <th><button (click)="sortOrder('isAdmin')" class="btn btn-link">IsAdmin</button></th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let u of users | searchUser:substr | sort:sortCol:sortAsc">
+                <td>{{ u.id }}</td>
+                <td>{{ u.username }}</td>
+                <td>{{ u.password }}</td>
+                <td>{{ u.firstname }}</td>
+                <td>{{ u.lastname }}</td>
+                <td>{{ u.phone }}</td>
+                <td>{{ u.email }}</td>
+                <td>{{ u.isReviewer | bool:locale}}</td>
+                <td>{{ u.isAdmin | bool:locale}}</td>
+                <td>
+                    <a routerLink="/user/user-detail/{{ u.id }}">Detail |</a>
+                    <a routerLink="/user/user-edit/{{ u.id }}"> Edit</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
