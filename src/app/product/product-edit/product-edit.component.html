@@ -1,0 +1,47 @@
+
+<h2 class="title">{{ title }}</h2>
+<table>
+    <tbody>
+        <tr>
+            <td>Id</td>
+            <td><input id="pid" type="text" value="0" disabled></td>
+        </tr>
+        <tr>
+            <td>PartNbr</td>
+            <td><input [(ngModel)]=prod.partNbr></td>
+            
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td><input [(ngModel)]=prod.name></td>
+            
+        </tr>
+        <tr>
+            <td>Price</td>
+            <td><input [(ngModel)]=prod.price></td>
+            
+        </tr>
+        <tr>
+            <td>Unit</td>
+            <td><input [(ngModel)]=prod.unit></td>
+            
+        </tr>
+        <tr>
+            <td>PhotoPath</td>
+            <td><input [(ngModel)]=prod.photoPath></td>
+            
+        </tr>
+        <tr>
+            <td>CustomerId</td>
+            <td>
+                <select [(ngModel)]="prod.vendorId">
+                    <option *ngFor="let x of vends" value="{{ x.id }}">{{ x.name }}</option>
+                </select>
+            </td>
+            
+        </tr>
+       
+    </tbody>
+</table>
+
+<button (click)="update()" class="btn btn-primary">Confirm</button>

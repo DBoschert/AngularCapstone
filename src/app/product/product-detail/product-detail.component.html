@@ -1,0 +1,36 @@
+
+<h2 class="title">{{ title }}</h2>
+<table>
+    <thead>
+        <tr>
+            <td>Id</td>
+            <td><input id="pid" type="text" value="0" disabled></td>
+        </tr>
+        <tr>
+            <td>PartNbr</td>
+            <td><input [(ngModel)]="vend.partNbr" readonly></td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td><input [(ngModel)]="vend.name" readonly></td>
+        </tr>
+        <tr>
+            <td>Price</td>
+            <td><input [(ngModel)]="vend.price" readonly></td>
+        </tr>
+        <tr>
+            <td>Unit</td>
+            <td><input [(ngModel)]="vend.unit" readonly></td>
+        </tr>
+        <tr>
+            <td>PhotoPath</td>
+            <td><input [(ngModel)]="vend.photoPath" readonly></td>
+        </tr>
+        <tr>
+            <td>VendorId</td>
+            <td><input [(ngModel)]="vend.vendorId" readonly></td>
+        </tr>
+    </thead>
+</table>
+
+<button (click)="delete()">DELETE</button>

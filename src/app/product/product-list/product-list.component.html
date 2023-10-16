@@ -1,0 +1,37 @@
+
+<div>
+
+    <h2 class="title">{{ title }} | </h2>
+    <input [(ngModel)]="substr" placeholder="Search"> <br>
+    <a href="/product/product-create">CREATE</a>
+    <table class="table table-sm table-striped">
+        <thead>
+            <tr>
+                <th><button (click)="sortOrder('id')" class="btn btn-link">Id</button></th>
+                <th><button (click)="sortOrder('partNbr')" class="btn btn-link">PartNbr</button></th>
+                <th><button (click)="sortOrder('name')" class="btn btn-link">Name</button></th>
+                <th><button (click)="sortOrder('price')" class="btn btn-link">Price</button></th>
+                <th><button (click)="sortOrder('unit')" class="btn btn-link">Unit</button></th>
+                <th><button (click)="sortOrder('photoPath')" class="btn btn-link">PhotoPath</button></th>
+                <th><button (click)="sortOrder('vendorId')" class="btn btn-link">VendorId</button></th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let p of prods | searchProduct:substr | sort:sortCol:sortAsc">
+                <td>{{ p.id }}</td>
+                <td>{{ p.partNbr }}</td>
+                <td>{{ p.name }}</td>
+                <td>{{ p.price | currency}}</td>
+                <td>{{ p.unit }}</td>
+                <td>{{ p.photoPath }}</td>
+                <td>{{ p.vendorId }}</td>
+                <td>
+                    <a routerLink="/product/product-detail/{{ p.id }}">Detail |</a>
+                    <a routerLink="/product/product-edit/{{ p.id }}"> Edit</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
