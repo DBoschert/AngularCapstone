@@ -19,6 +19,7 @@ import { RequestListComponent } from './request/request-list/request-list.compon
 import { RequestDetailComponent } from './request/request-detail/request-detail.component';
 import { RequestEditComponent } from './request/request-edit/request-edit.component';
 import { RequestCreateComponent } from './request/request-create/request-create.component';
+import { LoginComponent } from './user/login/login.component';
 
 const routes: Routes = [
   { path: "", redirectTo: "/home", pathMatch: "full" },
@@ -28,6 +29,7 @@ const routes: Routes = [
   { path: "user/user-create", component: UserCreateComponent },
   { path: "user/user-detail/:id", component: UserDetailComponent },
   { path: "user/user-edit/:id", component: UserEditComponent },
+  { path: "user/login", component: LoginComponent },
   
   
   { path: "vendor/vendor-list", component: VendorListComponent },

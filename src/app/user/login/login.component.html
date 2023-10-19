@@ -1,0 +1,22 @@
+<table>
+    <tbody class="table table-sm">
+        <tr>
+            <td>Username</td>
+            <td><input [(ngModel)]=user.username></td>
+            
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td><input [(ngModel)]=user.password></td>
+            
+        </tr>
+       
+    </tbody>
+</table>
+
+
+<div>
+    <button (click)="logined()">LOGIN</button>
+</div>
+
+<p *ngIf='message === "Not Found!"'>TRY AGAIN!</p>

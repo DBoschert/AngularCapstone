@@ -38,7 +38,7 @@ export class RequestDetailComponent {
       this.reqsvc.remove(id).subscribe({
         next: (res) => {
           console.log("Deleted...");
-          this.router.navigateByUrl("/requets/request-list");
+          this.router.navigateByUrl("/request/request-list");
         },
         error: (err) => {
           if(err.status === 404){

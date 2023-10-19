@@ -38,7 +38,7 @@
         <!-- The id of the logged in user needs to be stored right here (make it so it automatically uses the user that is logged in id)-->
         <tr>
             <td>UserId</td>
-                <td *ngIf="req.user"><input [(ngModel)]="req.user!.username" readonly></td>
+                <td><input [(ngModel)]="userLoggedIn.username" readonly></td>
         </tr>
        
     </tbody>
