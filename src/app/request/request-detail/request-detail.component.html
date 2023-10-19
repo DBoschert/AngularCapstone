@@ -1,0 +1,36 @@
+
+<h2 class="title">{{ title }}</h2>
+<table>
+    <thead>
+        <tr>
+            <td>Id</td>
+            <td><input [(ngModel)]=req.id readonly></td>
+        </tr>
+        <tr>
+            <td>Description</td>
+            <td><input [(ngModel)]="req.description" readonly></td>
+        </tr>
+        <tr>
+            <td>Justification</td>
+            <td><input [(ngModel)]="req.justification" readonly></td>
+        </tr>
+        <tr>
+            <td>DeliveryMode</td>
+            <td><input [(ngModel)]="req.deliveryMode" readonly></td>
+        </tr>
+        <tr>
+            <td>Status</td>
+            <td><input [(ngModel)]="req.status" readonly></td>
+        </tr>
+        <tr>
+            <td>Total</td>
+            <td><input [(ngModel)]="req.total" readonly></td>
+        </tr>
+        <tr>
+            <td>UserId</td>
+                <td *ngIf="req.user"><input [(ngModel)]="req.user!.username" readonly></td>
+        </tr>
+    </thead>
+</table>
+
+<button (click)="delete()">DELETE</button>

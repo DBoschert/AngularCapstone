@@ -15,6 +15,10 @@ import { ProductListComponent } from './product/product-list/product-list.compon
 import { ProductCreateComponent } from './product/product-create/product-create.component';
 import { ProductDetailComponent } from './product/product-detail/product-detail.component';
 import { ProductEditComponent } from './product/product-edit/product-edit.component';
+import { RequestListComponent } from './request/request-list/request-list.component';
+import { RequestDetailComponent } from './request/request-detail/request-detail.component';
+import { RequestEditComponent } from './request/request-edit/request-edit.component';
+import { RequestCreateComponent } from './request/request-create/request-create.component';
 
 const routes: Routes = [
   { path: "", redirectTo: "/home", pathMatch: "full" },
@@ -35,6 +39,12 @@ const routes: Routes = [
   { path: "product/product-create", component: ProductCreateComponent },
   { path: "product/product-detail/:id", component: ProductDetailComponent },
   { path: "product/product-edit/:id", component: ProductEditComponent },
+  
+  { path: "request/request-list", component: RequestListComponent },
+  { path: "request/request-create", component: RequestCreateComponent },
+  { path: "request/request-detail/:id", component: RequestDetailComponent },
+  { path: "request/request-edit/:id", component: RequestEditComponent },
+
 
   
 

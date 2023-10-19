@@ -1,31 +1,30 @@
 import { Component } from '@angular/core';
-import { Product } from '../product.class';
-import { ProductService } from '../product.service';
+import { Request1Service } from '../request.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Vendor } from 'src/app/vendor/vendor.class';
+import { Request1 } from '../request.class';
 
 @Component({
-  selector: 'app-product-detail',
-  templateUrl: './product-detail.component.html',
-  styleUrls: ['./product-detail.component.css']
+  selector: 'app-request-detail',
+  templateUrl: './request-detail.component.html',
+  styleUrls: ['./request-detail.component.css']
 })
-export class ProductDetailComponent {
+export class RequestDetailComponent {
 
-  title: string = "Product Detail";
-  prod: Product = new Product();
+  title: string = "Request Detail";
+  req: Request1 = new Request1();
   message: string = "";
 
   constructor(
-    private prodsvc: ProductService,
+    private reqsvc: Request1Service,
     private route: ActivatedRoute,
     private router: Router
   ) {}
   ngOnInit(): void {
     let id = this.route.snapshot.params["id"];
-    this.prodsvc.get(id).subscribe({
+    this.reqsvc.get(id).subscribe({
       next: (res) => {
         console.debug(res);
-        this.prod = res;
+        this.req = res;
       },
       error: (err) => {
         console.error(err);
@@ -36,10 +35,10 @@ export class ProductDetailComponent {
   delete(): void {
     this.message = "";
       let id = this.route.snapshot.params["id"];
-      this.prodsvc.remove(id).subscribe({
+      this.reqsvc.remove(id).subscribe({
         next: (res) => {
           console.log("Deleted...");
-          this.router.navigateByUrl("/product/product-list");
+          this.router.navigateByUrl("/requets/request-list");
         },
         error: (err) => {
           if(err.status === 404){

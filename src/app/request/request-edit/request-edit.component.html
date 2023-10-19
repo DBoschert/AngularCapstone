@@ -1,0 +1,42 @@
+
+<h2 class="title">{{ title }}</h2>
+<table>
+    <tbody>
+        <tr>
+            <td>Id</td>
+            <td><input [(ngModel)]=req.id readonly></td>
+        </tr>
+        <tr>
+            <td>Description</td>
+            <td><input [(ngModel)]=req.description></td>
+            
+        </tr>
+        <tr>
+            <td>Justification</td>
+            <td><input [(ngModel)]=req.justification></td>
+            
+        </tr>
+        <tr>
+            <td>DeliveryMode</td>
+            <td><input [(ngModel)]=req.deliveryMode></td>
+            
+        </tr>
+        <tr>
+            <td>Status</td>
+            <td><input [(ngModel)]=req.status readonly></td>
+            
+        </tr>
+        <tr>
+            <td>Total</td>
+            <td><input [(ngModel)]=req.total readonly></td>
+            
+        </tr>
+        <tr>
+            <td>UserId</td>
+                <td *ngIf="req.user"><input [(ngModel)]="req.user!.username" readonly></td>
+        </tr>
+       
+    </tbody>
+</table>
+
+<button (click)="update()" class="btn btn-primary">Confirm</button>

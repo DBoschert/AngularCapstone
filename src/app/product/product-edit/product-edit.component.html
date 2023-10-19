@@ -4,7 +4,7 @@
     <tbody>
         <tr>
             <td>Id</td>
-            <td><input id="pid" type="text" value="0" disabled></td>
+            <td><input [(ngModel)]=prod.id readonly></td>
         </tr>
         <tr>
             <td>PartNbr</td>
@@ -32,7 +32,7 @@
             
         </tr>
         <tr>
-            <td>CustomerId</td>
+            <td>VendorId</td>
             <td>
                 <select [(ngModel)]="prod.vendorId">
                     <option *ngFor="let x of vends" value="{{ x.id }}">{{ x.name }}</option>

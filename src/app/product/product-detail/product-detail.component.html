@@ -4,31 +4,31 @@
     <thead>
         <tr>
             <td>Id</td>
-            <td><input id="pid" type="text" value="0" disabled></td>
+            <td><input [(ngModel)]=prod.id readonly></td>
         </tr>
         <tr>
             <td>PartNbr</td>
-            <td><input [(ngModel)]="vend.partNbr" readonly></td>
+            <td><input [(ngModel)]="prod.partNbr" readonly></td>
         </tr>
         <tr>
             <td>Name</td>
-            <td><input [(ngModel)]="vend.name" readonly></td>
+            <td><input [(ngModel)]="prod.name" readonly></td>
         </tr>
         <tr>
             <td>Price</td>
-            <td><input [(ngModel)]="vend.price" readonly></td>
+            <td><input [(ngModel)]="prod.price" readonly></td>
         </tr>
         <tr>
             <td>Unit</td>
-            <td><input [(ngModel)]="vend.unit" readonly></td>
+            <td><input [(ngModel)]="prod.unit" readonly></td>
         </tr>
         <tr>
             <td>PhotoPath</td>
-            <td><input [(ngModel)]="vend.photoPath" readonly></td>
+            <td><input [(ngModel)]="prod.photoPath" readonly></td>
         </tr>
         <tr>
             <td>VendorId</td>
-            <td><input [(ngModel)]="vend.vendorId" readonly></td>
+                <td *ngIf="prod.vendor"><input [(ngModel)]="prod.vendor!.name" readonly></td>
         </tr>
     </thead>
 </table>

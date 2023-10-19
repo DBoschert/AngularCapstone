@@ -12,7 +12,8 @@ export class MenuComponent {
     new Menu ("ABOUT", "/about"),
     new Menu ("USERS", "/user/user-list"),
     new Menu ("VENDORS", "/vendor/vendor-list"),
-    new Menu ("PRODUCTS", "/product/product-list")
+    new Menu ("PRODUCTS", "/product/product-list"),
+    new Menu ("REQUESTS", "/request/request-list")
     
   ];
 }
