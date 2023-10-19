@@ -26,6 +26,18 @@ export class RequestLinesComponent {
     private router: Router
   ) {}
 
+  review(): void {
+    this.reqsvc.review(this.req).subscribe({
+      next: (res) => {
+        console.debug("Placed on REVIEW!");
+        this.refresh();
+      },
+      error: (err) => {
+        console.error(err);
+      }
+    });
+  }
+
   refresh(): void {
     let id = +this.route.snapshot.params["id"];
     this.reqsvc.get(id).subscribe({

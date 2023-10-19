@@ -1,0 +1,29 @@
+
+<div>
+
+    <table class="table table-sm">
+        <tbody>
+            <tr>
+                <td>Id:</td>
+                <td><input [(ngModel)]="reql.id" readonly></td>
+                
+            </tr>
+            <tr>
+                <td>Product:</td>
+                <td>
+                    <select [(ngModel)]="reql.productId">
+                        <option *ngFor="let x of items" value="{{ x.id }}">{{ x.name }}</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Quantity:</td>
+                <td><input [(ngModel)]="reql.quantity" type="number"></td>
+                
+            </tr>
+    </tbody>
+</table>
+<div>
+    <button (click)="update()" class="btn btn-primary">Save</button>
+</div>
+</div>

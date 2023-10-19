@@ -1,16 +1,13 @@
 <div>
 
     <h2 class="title">{{ title }} | </h2>
-    <input [(ngModel)]="substr" placeholder="Search"> <br>
-    <a routerLink="/request/request-create">CREATE</a>
+    <input [(ngModel)]="substr" placeholder="Search">
     <table class="table table-sm table-striped">
         <thead>
             <tr>
                 <th><button (click)="sortOrder('id')" class="btn btn-link">Id</button></th>
                 <th><button (click)="sortOrder('description')" class="btn btn-link">Description</button></th>
                 <th><button (click)="sortOrder('justification')" class="btn btn-link">Justification</button></th>
-                <th><button (click)="sortOrder('rejectionReason')" class="btn btn-link">RejectionReason</button></th>
-                <th><button (click)="sortOrder('deliveryMode')" class="btn btn-link">DeliveryMode</button></th>
                 <th><button (click)="sortOrder('status')" class="btn btn-link">Status</button></th>
                 <th><button (click)="sortOrder('total')" class="btn btn-link">Total</button></th>
                 <th><button (click)="sortOrder('userId')" class="btn btn-link">User</button></th>
@@ -22,15 +19,12 @@
                 <td>{{ r.id }}</td>
                 <td>{{ r.description }}</td>
                 <td>{{ r.justification }}</td>
-                <td>{{ r.rejectionReason }}</td>
-                <td>{{ r.deliveryMode }}</td>
                 <td>{{ r.status }}</td>
                 <td>{{ r.total | currency}}</td>
-                <td>{{ r.user!.username }}</td>
+                <td>{{ r.userId}}</td>
+                <!-- <td *ngIf="req.user">{{ r.user!.username }}</td> -->
                 <td>
-                    <a routerLink="/request/request-detail/{{ r.id }}">Detail |</a>
-                    <a routerLink="/request/request-edit/{{ r.id }}"> Edit</a> |
-                    <a routerLink="/request/request-lines/{{ r.id }}"> Lines</a> |
+                    <a routerLink="/request/request-detail/{{ r.id }}">Review</a>
                 </td>
             </tr>
         </tbody>
