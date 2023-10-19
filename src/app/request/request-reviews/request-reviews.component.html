@@ -22,9 +22,8 @@
                 <td>{{ r.status }}</td>
                 <td>{{ r.total | currency}}</td>
                 <td>{{ r.userId}}</td>
-                <!-- <td *ngIf="req.user">{{ r.user!.username }}</td> -->
                 <td>
-                    <a routerLink="/request/request-detail/{{ r.id }}">Review</a>
+                    <a routerLink="/request/request-review/{{ r.id }}">Review</a>
                 </td>
             </tr>
         </tbody>

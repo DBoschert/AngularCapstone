@@ -1,5 +1,5 @@
+
 <div id="component">
-    <a routerLink="/request/request-list">Return to list...</a>
     <table class="table table-sm" *ngIf="req">
         <thead>
             <tr>
@@ -9,7 +9,6 @@
                 <th>Status</th>
                 <th>Total</th>
                 <th>Username</th>
-                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -20,12 +19,10 @@
                 <td>{{ req.status }}</td>
                 <td>{{ req.total | currency}}</td>
                 <td>{{ req.user?.username }}</td>
-                <button (click)="review()">Submit For Review</button>
             </tr>
         </tbody>
     </table>
 
-    <a routerLink="/requestline/requestline-create/{{ req.id }}" *ngIf="req">Create</a> <br>
 
     <table class="table table-sm table-striped" *ngIf="req">
         <thead>
@@ -35,7 +32,6 @@
                 <th>Price</th>
                 <th>Quantity</th>
                 <th>Line Total</th>
-                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -45,10 +41,10 @@
                     <td>{{ x.product?.price | currency }}</td>
                     <td>{{ x.quantity }}</td>
                     <td>{{ x.quantity * x.product?.price! | currency }}</td>
-                    <a routerLink="/requestline/requestline-edit/{{ x.id }}">Edit | </a>
-                    <button (click)="clicked()">Delete</button>
-                    <button *ngIf="verifyDelete === true" (click)="remove(x.id)" class="btn btn-primary">Verify Delete</button>
                 </tr>
         </tbody>
     </table>
+
+    <button (click)="approve()">Approve</button>
+
 </div>
