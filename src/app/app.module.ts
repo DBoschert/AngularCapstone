@@ -32,6 +32,8 @@ import { RequestDetailComponent } from './request/request-detail/request-detail.
 import { RequestEditComponent } from './request/request-edit/request-edit.component';
 import { RequestCreateComponent } from './request/request-create/request-create.component';
 import { LoginComponent } from './user/login/login.component';
+import { RequestLinesComponent } from './request/request-lines/request-lines.component';
+import { RequestlineCreateComponent } from './requestline/requestline-create/requestline-create.component';
 
 
 @NgModule({
@@ -63,7 +65,9 @@ import { LoginComponent } from './user/login/login.component';
     RequestDetailComponent,
     RequestEditComponent,
     RequestCreateComponent,
-    LoginComponent
+    LoginComponent,
+    RequestLinesComponent,
+    RequestlineCreateComponent
   ],
   imports: [
     BrowserModule, FormsModule, HttpClientModule,
