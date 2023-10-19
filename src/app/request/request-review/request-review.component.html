@@ -45,6 +45,13 @@
         </tbody>
     </table>
 
-    <button (click)="approve()">Approve</button>
+    <button (click)="approve()">Approve</button> | 
+
+    <!-- currently delte not reject -->
+    <button (click)="clicked()">Reject</button>
+    <span *ngIf="verifyDelete === true"> | </span>
+    <input *ngIf="verifyDelete === true" [(ngModel)]=req.rejectionReason>
+    <span *ngIf="verifyDelete === true"> | </span>
+    <button *ngIf="verifyDelete === true" (click)="update()" class="btn btn-primary">Verify Reject</button>
 
 </div>

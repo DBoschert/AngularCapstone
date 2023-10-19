@@ -57,6 +57,62 @@ export class RequestReviewComponent {
     this.refresh();
   }
 
+  clicked(): void {
+    if(this.count % 2 === 1){
+      this.verifyDelete = true;
+    }
+    else{
+      this.verifyDelete = false;
+    }
+    this.count++;
+  }
+  update(): void{
+    this.reqsvc.change(this.req).subscribe({
+      next: (res) => {
+        console.debug("Changed!");
+        this.reject();
+        this.refresh();
+      },
+      error: (err) => {
+        console.error(err);
+      }
+    });
+  }
+
+  reject(): void {
+    this.reqsvc.reject(this.req).subscribe({
+      next: (res) => {
+        console.debug("REJECTED!!!");
+        // this.refresh();
+        // this.update();
+      },
+      error: (err) => {
+        console.error(err);
+      }
+    });
+  }
+
+
+  remove(id:number): void {
+    this.message = "";
+    this.reqlsvc.remove(id).subscribe({
+      next: (res) => {
+        console.log("Deleted...");
+        this.refresh();
+        this.verifyDelete = false;
+        this.count++;
+
+      },
+      error: (err) => {
+        if(err.status === 404){
+          this.message = "Request not found";
+        }else{
+          console.error(err);
+        }
+      }
+    });
+  }
+
 
 
 }
