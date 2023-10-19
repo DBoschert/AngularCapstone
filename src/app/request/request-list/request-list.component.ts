@@ -8,6 +8,7 @@ import { Request1Service } from '../request.service';
   styleUrls: ['./request-list.component.css']
 })
 export class RequestListComponent {
+  title: string = "Request List";
   reqs!: Request1[];
   locale: string = 'fr'; 
   substr: string = "";
