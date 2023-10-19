@@ -25,7 +25,7 @@
                 <td>{{ r.rejectionReason }}</td>
                 <td>{{ r.deliveryMode }}</td>
                 <td>{{ r.status }}</td>
-                <td>{{ r.total }}</td>
+                <td>{{ r.total | currency}}</td>
                 <td>{{ r.userId }}</td>
                 <td>
                     <a routerLink="/request/request-detail/{{ r.id }}">Detail |</a>

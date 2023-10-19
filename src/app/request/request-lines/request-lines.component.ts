@@ -32,28 +32,16 @@ export class RequestLinesComponent {
       next: (res) => {
         console.debug(res);
         this.req = res;
-      },
+      }, 
       error: (err) => {
         console.error(err);
-      }
+       } 
     });
   }
 
-  //added
-  getRls(): void {
-    this.reqlsvc.list().subscribe({
-      next: (res) => {
-        console.debug(res);
-        this.req.requestLines = res;
-      },
-      error: (err) => console.error(err)
-    });
-    
-  }
 
   ngOnInit(): void {
     this.refresh();
-    this.getRls();
   }
 
   clicked(): void {
@@ -66,9 +54,9 @@ export class RequestLinesComponent {
     this.count++;
   }
 
+
   remove(id:number): void {
     this.message = "";
-    // don't need this | let id = this.route.snapshot.params["id"]; | because this method used the passed in "id" in remove
     this.reqlsvc.remove(id).subscribe({
       next: (res) => {
         console.log("Deleted...");
@@ -79,7 +67,7 @@ export class RequestLinesComponent {
       },
       error: (err) => {
         if(err.status === 404){
-          this.message = "Customer not found";
+          this.message = "Request not found";
         }else{
           console.error(err);
         }
