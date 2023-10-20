@@ -53,5 +53,6 @@
     <input *ngIf="verifyDelete === true" [(ngModel)]=req.rejectionReason>
     <span *ngIf="verifyDelete === true"> | </span>
     <button *ngIf="verifyDelete === true" (click)="update()" class="btn btn-primary">Verify Reject</button>
+    <p *ngIf='invalid !== "" '>{{ invalid }}</p>
 
 </div>

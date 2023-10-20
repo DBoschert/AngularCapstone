@@ -13,6 +13,7 @@ import { Request1Service } from '../request.service';
 })
 export class RequestReviewComponent {
 
+  invalid: string = "";
   req!: Request1;
   message: string = "";
   verifyDelete: boolean = false;
@@ -66,53 +67,36 @@ export class RequestReviewComponent {
     }
     this.count++;
   }
-  update(): void{
-    this.reqsvc.change(this.req).subscribe({
-      next: (res) => {
-        console.debug("Changed!");
-        this.reject();
-        this.refresh();
-      },
-      error: (err) => {
-        console.error(err);
-      }
-    });
-  }
-
   reject(): void {
     this.reqsvc.reject(this.req).subscribe({
       next: (res) => {
         console.debug("REJECTED!!!");
-        // this.refresh();
-        // this.update();
       },
       error: (err) => {
         console.error(err);
       }
     });
   }
-
-
-  remove(id:number): void {
-    this.message = "";
-    this.reqlsvc.remove(id).subscribe({
+  update(): void{
+    this.invalid = "";
+    this.reqsvc.change(this.req).subscribe({
       next: (res) => {
-        console.log("Deleted...");
-        this.refresh();
-        this.verifyDelete = false;
-        this.count++;
+        if(this.req.rejectionReason !== ""){
 
+          console.debug("Changed!");
+          this.reject();
+          this.refresh();
+        }
+        else{
+          this.invalid = "REJECTION REASON REQUIRED!!!";
+          
+        }
       },
       error: (err) => {
-        if(err.status === 404){
-          this.message = "Request not found";
-        }else{
-          console.error(err);
-        }
+        console.error(err);
       }
     });
   }
-
 
 
 }

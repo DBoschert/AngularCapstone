@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Request1 } from '../request.class';
 import { Request1Service } from '../request.service';
 import { SystemService } from 'src/app/user/system.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-request-reviews',
@@ -28,13 +29,16 @@ export class RequestReviewsComponent {
   
   constructor(
     private reqsvc: Request1Service,
-    private syssvc: SystemService
+    private syssvc: SystemService,
+    private route: ActivatedRoute,
+    private router: Router
     ) {}
 
     ngOnInit(): void {
       this.reqsvc.getReviews(this.syssvc.loggedInUser.id).subscribe({
         next: (res) => {
           console.log(res);
+          console.log(this.syssvc.loggedInUser.id);
           this.reqs = res as unknown as Request1[];
         },
         error: (err) => {
@@ -42,5 +46,6 @@ export class RequestReviewsComponent {
         }
       });
     }
+    
 
 }
