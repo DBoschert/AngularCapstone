@@ -27,14 +27,15 @@ import { RequestReviewsComponent } from './request/request-reviews/request-revie
 import { RequestReviewComponent } from './request/request-review/request-review.component';
 
 const routes: Routes = [
-  { path: "", redirectTo: "/home", pathMatch: "full" },
+  { path: "", redirectTo: "/user/login", pathMatch: "full" },
+  { path: "user/login", component: LoginComponent },
+  
   { path: "home", component: HomeComponent },
 
   { path: "user/user-list", component: UserListComponent },
   { path: "user/user-create", component: UserCreateComponent },
   { path: "user/user-detail/:id", component: UserDetailComponent },
   { path: "user/user-edit/:id", component: UserEditComponent },
-  { path: "user/login", component: LoginComponent },
   
   
   { path: "vendor/vendor-list", component: VendorListComponent },

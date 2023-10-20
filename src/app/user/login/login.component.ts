@@ -21,7 +21,7 @@ export class LoginComponent {
   constructor(
     private syssvc: SystemService,
     private usersvc: UserService,
-    private route: ActivatedRoute, // need to use the activated route to read the path variable
+    private route: ActivatedRoute,
     private router: Router
     ) {}
     
@@ -30,7 +30,7 @@ export class LoginComponent {
         next: (res) => {
           console.debug(res);
           this.syssvc.loggedInUser = res;
-          this.router.navigateByUrl("/home"); 
+          this.router.navigateByUrl("/request/request-list"); 
           
         },
         error: (err) => {
