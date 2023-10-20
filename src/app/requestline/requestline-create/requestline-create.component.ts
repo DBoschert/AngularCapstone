@@ -13,6 +13,7 @@ import { SystemService } from 'src/app/user/system.service';
 })
 export class RequestlineCreateComponent {
 
+  title: string = "Requestline Create";
   reql: RequestLine = new RequestLine();
   prods!: Product[];
 

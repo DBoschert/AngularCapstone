@@ -33,4 +33,7 @@
     </thead>
 </table>
 
-<button (click)="delete()">DELETE</button>
+<button routerLink="/request/request-edit/{{ req.id }}" class="edit">Edit</button>
+
+<button (click)="clicked()" class="delete">Delete</button>
+<button *ngIf="verifyDelete === true" (click)="delete()" class="verifyDelete">Verify Delete</button>

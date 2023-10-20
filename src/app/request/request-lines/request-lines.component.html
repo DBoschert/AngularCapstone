@@ -20,7 +20,7 @@
                 <td>{{ req.status }}</td>
                 <td>{{ req.total | currency}}</td>
                 <td>{{ req.user?.username }}</td>
-                <button (click)="review()">Submit For Review</button>
+                <button (click)="review()" class="review">Submit For Review</button>
             </tr>
         </tbody>
     </table>
@@ -46,8 +46,8 @@
                     <td>{{ x.quantity }}</td>
                     <td>{{ x.quantity * x.product?.price! | currency }}</td>
                     <a routerLink="/requestline/requestline-edit/{{ x.id }}">Edit | </a>
-                    <button (click)="clicked()">Delete</button>
-                    <button *ngIf="verifyDelete === true" (click)="remove(x.id)" class="btn btn-primary">Verify Delete</button>
+                    <button (click)="clicked()" class="delete">Delete</button>
+                    <button *ngIf="verifyDelete === true" (click)="remove(x.id)" class="verifyDelete">Verify Delete</button>
                 </tr>
         </tbody>
     </table>

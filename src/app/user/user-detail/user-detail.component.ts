@@ -12,6 +12,9 @@ export class UserDetailComponent {
   title: string = "User Detail";
   user: User = new User();
   message: string = "";
+  verifyDelete: boolean = false;
+  count: number = 1;
+
 
   constructor(
     private usersvc: UserService,
@@ -47,6 +50,16 @@ export class UserDetailComponent {
           }
         }
       });
+  }
+
+  clicked(): void {
+    if(this.count % 2 === 1){
+      this.verifyDelete = true;
+    }
+    else{
+      this.verifyDelete = false;
+    }
+    this.count++;
   }
 
 }

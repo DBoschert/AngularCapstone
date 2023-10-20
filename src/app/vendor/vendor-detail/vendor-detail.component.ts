@@ -12,6 +12,8 @@ export class VendorDetailComponent {
   title: string = "Vendor Detail";
   vend: Vendor = new Vendor();
   message: string = "";
+  verifyDelete: boolean = false;
+  count: number = 1;
 
   constructor(
     private vendsvc: VendorService,
@@ -47,6 +49,16 @@ export class VendorDetailComponent {
           }
         }
       });
+  }
+
+  clicked(): void {
+    if(this.count % 2 === 1){
+      this.verifyDelete = true;
+    }
+    else{
+      this.verifyDelete = false;
+    }
+    this.count++;
   }
 
 }

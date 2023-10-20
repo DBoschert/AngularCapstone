@@ -3,3 +3,26 @@
     display: inline-block;
     padding: 0 5px;
 }
+
+.edit {
+    margin-left: 0.2%;
+    margin-right: 0.3%;
+    background-color: yellow;
+    font-weight: bold;
+    border-radius: 10%;
+}
+
+.delete {
+    background-color: rgb(255, 43, 43);
+    font-weight: bold;
+    border-radius: 10%;
+    color: white;
+}
+
+.verifyDelete{
+    background-color: rgb(255, 43, 43);
+    font-weight: bold;
+    border-radius: 10%;
+    color: white;
+    margin-left: 0.2%;
+}
