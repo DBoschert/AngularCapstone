@@ -20,6 +20,11 @@ import { RequestDetailComponent } from './request/request-detail/request-detail.
 import { RequestEditComponent } from './request/request-edit/request-edit.component';
 import { RequestCreateComponent } from './request/request-create/request-create.component';
 import { LoginComponent } from './user/login/login.component';
+import { RequestLinesComponent } from './request/request-lines/request-lines.component';
+import { RequestlineCreateComponent } from './requestline/requestline-create/requestline-create.component';
+import { RequestlineEditComponent } from './requestline/requestline-edit/requestline-edit.component';
+import { RequestReviewsComponent } from './request/request-reviews/request-reviews.component';
+import { RequestReviewComponent } from './request/request-review/request-review.component';
 
 const routes: Routes = [
   { path: "", redirectTo: "/home", pathMatch: "full" },
@@ -46,8 +51,13 @@ const routes: Routes = [
   { path: "request/request-create", component: RequestCreateComponent },
   { path: "request/request-detail/:id", component: RequestDetailComponent },
   { path: "request/request-edit/:id", component: RequestEditComponent },
-
-
+  { path: "request/request-lines/:id", component: RequestLinesComponent },
+  { path: "request/request-reviews", component: RequestReviewsComponent },
+  { path: "request/request-review/:id", component: RequestReviewComponent },
+  
+  { path: "requestline/requestline-create/:rid", component: RequestlineCreateComponent },
+  { path: "requestline/requestline-edit/:id", component: RequestlineEditComponent },
+  
   
 
   { path: "about", component: AboutComponent },

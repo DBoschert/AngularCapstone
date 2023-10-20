@@ -1,0 +1,54 @@
+<div id="component">
+    <h2 class="title">{{ title }}</h2> <br>
+    <table class="table table-sm" *ngIf="req">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Description</th>
+                <th>Rejection Reason</th>
+                <th>Status</th>
+                <th>Total</th>
+                <th>Username</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ req.id }}</td>
+                <td>{{ req.description }}</td>
+                <td>{{ req.rejectionReason }}</td>
+                <td>{{ req.status }}</td>
+                <td>{{ req.total | currency}}</td>
+                <td>{{ req.user?.username }}</td>
+                <button (click)="review()">Submit For Review</button>
+            </tr>
+        </tbody>
+    </table>
+
+    <a routerLink="/requestline/requestline-create/{{ req.id }}" *ngIf="req">Create</a> <br>
+
+    <table class="table table-sm table-striped" *ngIf="req">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Line Total</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let x of req.requestLines">
+                    <td>{{ x.id }}</td>
+                    <td>{{ x.product?.name }}</td>
+                    <td>{{ x.product?.price | currency }}</td>
+                    <td>{{ x.quantity }}</td>
+                    <td>{{ x.quantity * x.product?.price! | currency }}</td>
+                    <a routerLink="/requestline/requestline-edit/{{ x.id }}">Edit | </a>
+                    <button (click)="clicked()">Delete</button>
+                    <button *ngIf="verifyDelete === true" (click)="remove(x.id)" class="btn btn-primary">Verify Delete</button>
+                </tr>
+        </tbody>
+    </table>
+</div>
