@@ -3,7 +3,7 @@
 
     <h2 class="title">{{ title }} | </h2>
     <input [(ngModel)]="substr" placeholder="Search"> <br>
-    <a href="/user/user-create">CREATE</a>
+    <a *ngIf="userLoggedIn.isAdmin === true" routerLink="/user/user-create">CREATE</a>
     <table class="table table-sm table-striped">
         <thead>
             <tr>
@@ -16,7 +16,7 @@
                 <th><button (click)="sortOrder('email')" class="btn btn-link">Email</button></th>
                 <th><button (click)="sortOrder('isReviewer')" class="btn btn-link">IsReviewer</button></th>
                 <th><button (click)="sortOrder('isAdmin')" class="btn btn-link">IsAdmin</button></th>
-                <th>Actions</th>
+                <th *ngIf="userLoggedIn.isAdmin === true">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -31,8 +31,8 @@
                 <td>{{ u.isReviewer | bool:locale}}</td>
                 <td>{{ u.isAdmin | bool:locale}}</td>
                 <td>
-                    <a routerLink="/user/user-detail/{{ u.id }}">Detail |</a>
-                    <a routerLink="/user/user-edit/{{ u.id }}"> Edit</a>
+                    <a *ngIf="userLoggedIn.isAdmin === true" routerLink="/user/user-detail/{{ u.id }}">Detail |</a>
+                    <a *ngIf="userLoggedIn.isAdmin === true" routerLink="/user/user-edit/{{ u.id }}"> Edit</a>
                 </td>
             </tr>
         </tbody>

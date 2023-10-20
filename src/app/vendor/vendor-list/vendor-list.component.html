@@ -3,7 +3,7 @@
 
     <h2 class="title">{{ title }} | </h2>
     <input [(ngModel)]="substr" placeholder="Search"> <br>
-    <a href="/vendor/vendor-create">CREATE</a>
+    <a *ngIf="userLoggedIn.isAdmin === true" routerLink="/vendor/vendor-create">CREATE</a>
     <table class="table table-sm table-striped">
         <thead>
             <tr>
@@ -16,7 +16,7 @@
                 <th><button (click)="sortOrder('zip')" class="btn btn-link">Zip</button></th>
                 <th><button (click)="sortOrder('phone')" class="btn btn-link">Phone</button></th>
                 <th><button (click)="sortOrder('email')" class="btn btn-link">Email</button></th>
-                <th>Actions</th>
+                <th *ngIf="userLoggedIn.isAdmin === true">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -31,8 +31,8 @@
                 <td>{{ v.phone }}</td>
                 <td>{{ v.email }}</td>
                 <td>
-                    <a routerLink="/vendor/vendor-detail/{{ v.id }}">Detail |</a>
-                    <a routerLink="/vendor/vendor-edit/{{ v.id }}"> Edit</a>
+                    <a *ngIf="userLoggedIn.isAdmin === true" routerLink="/vendor/vendor-detail/{{ v.id }}">Detail |</a>
+                    <a *ngIf="userLoggedIn.isAdmin === true" routerLink="/vendor/vendor-edit/{{ v.id }}"> Edit</a>
                 </td>
             </tr>
         </tbody>
