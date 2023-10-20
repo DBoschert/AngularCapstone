@@ -3,6 +3,7 @@ import { Request1 } from '../request.class';
 import { Request1Service } from '../request.service';
 import { SystemService } from 'src/app/user/system.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { User } from 'src/app/user/user.class';
 
 @Component({
   selector: 'app-request-reviews',
@@ -18,6 +19,7 @@ export class RequestReviewsComponent {
   substr: string = "";
   sortCol: string = 'id';
   sortAsc: boolean = true;
+  userLoggedIn: User = new User();
   sortOrder(col: string): void { 
     if(col === this.sortCol) {
       this.sortAsc = !this.sortAsc;
@@ -35,6 +37,7 @@ export class RequestReviewsComponent {
     ) {}
 
     ngOnInit(): void {
+      this.userLoggedIn = this.syssvc.loggedInUser;
       this.reqsvc.getReviews(this.syssvc.loggedInUser.id).subscribe({
         next: (res) => {
           console.log(res);

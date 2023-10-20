@@ -1,6 +1,6 @@
-
-
-<table>
+<div class="login">
+    
+    <table>
     <tbody class="table table-sm">
         <tr>
             <td>Username</td>
@@ -12,13 +12,16 @@
             <td><input [(ngModel)]=user.password type="password"></td>
             
         </tr>
-       
+        
     </tbody>
 </table>
 
 
 <div>
-    <button (click)="logined()">LOGIN</button>
+    <button (click)="logined()" class="loginBtn">LOGIN</button>
 </div>
 
 <p *ngIf='message === "Not Found!"'>TRY AGAIN!</p>
+    
+
+</div>

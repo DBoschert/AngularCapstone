@@ -3,7 +3,7 @@
 
     <h2 class="title">{{ title }} | </h2>
     <input [(ngModel)]="substr" placeholder="Search"> <br>
-    <a href="/product/product-create">CREATE</a>
+    <a *ngIf="userLoggedIn.isAdmin === true" routerLink="/product/product-create">CREATE</a>
     <table class="table table-sm table-striped">
         <thead>
             <tr>
@@ -14,7 +14,7 @@
                 <th><button (click)="sortOrder('unit')" class="btn btn-link">Unit</button></th>
                 <th><button (click)="sortOrder('photoPath')" class="btn btn-link">PhotoPath</button></th>
                 <th><button (click)="sortOrder('vendorId')" class="btn btn-link">VendorId</button></th>
-                <th>Actions</th>
+                <th *ngIf="userLoggedIn.isAdmin === true">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -27,8 +27,8 @@
                 <td>{{ p.photoPath }}</td>
                 <td>{{ p.vendorId }}</td>
                 <td>
-                    <a routerLink="/product/product-detail/{{ p.id }}">Detail |</a>
-                    <a routerLink="/product/product-edit/{{ p.id }}"> Edit</a>
+                    <a *ngIf="userLoggedIn.isAdmin === true" routerLink="/product/product-detail/{{ p.id }}">Detail |</a>
+                    <a *ngIf="userLoggedIn.isAdmin === true" routerLink="/product/product-edit/{{ p.id }}"> Edit</a>
                 </td>
             </tr>
         </tbody>

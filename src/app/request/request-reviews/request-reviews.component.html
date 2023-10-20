@@ -12,7 +12,7 @@
                 <th><button (click)="sortOrder('status')" class="btn btn-link">Status</button></th>
                 <th><button (click)="sortOrder('total')" class="btn btn-link">Total</button></th>
                 <th><button (click)="sortOrder('userId')" class="btn btn-link">User</button></th>
-                <th>Actions</th>
+                <th *ngIf="userLoggedIn.isReviewer === true">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -24,7 +24,7 @@
                 <td>{{ r.total | currency}}</td>
                 <td>{{ r.userId}}</td>
                 <td>
-                    <a routerLink="/request/request-review/{{ r.id }}">Review</a>
+                    <a *ngIf="userLoggedIn.isReviewer === true" routerLink="/request/request-review/{{ r.id }}">Review</a>
                 </td>
             </tr>
         </tbody>
