@@ -1,0 +1,15 @@
+.login{
+    position: relative;
+    left: 35%;
+    position: relative;
+    right: 110%;
+
+}
+
+.loginBtn{
+    background-color: blue;
+    color: white;
+    border-radius: 10%;
+    position: relative;
+    left: 0.2%;
+}
