@@ -3,3 +3,24 @@
     display: inline-block;
     padding: 0 5px;
 }
+
+.delete {
+    background-color: rgb(255, 43, 43);
+    font-weight: bold;
+    border-radius: 10%;
+    color: white;
+}
+
+.verifyDelete{
+    background-color: rgb(255, 43, 43);
+    font-weight: bold;
+    border-radius: 10%;
+    color: white;
+    margin-left: 0.3%;
+    position: fixed;
+}
+
+.review {
+    background-color: yellow;
+}
+

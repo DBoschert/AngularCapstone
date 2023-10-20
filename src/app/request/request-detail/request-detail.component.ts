@@ -13,6 +13,8 @@ export class RequestDetailComponent {
   title: string = "Request Detail";
   req: Request1 = new Request1();
   message: string = "";
+  verifyDelete: boolean = false;
+  count: number = 1;
 
   constructor(
     private reqsvc: Request1Service,
@@ -49,5 +51,16 @@ export class RequestDetailComponent {
         }
       });
   }
+
+  clicked(): void {
+    if(this.count % 2 === 1){
+      this.verifyDelete = true;
+    }
+    else{
+      this.verifyDelete = false;
+    }
+    this.count++;
+  }
+
 
 }

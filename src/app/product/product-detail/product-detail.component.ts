@@ -14,6 +14,8 @@ export class ProductDetailComponent {
   title: string = "Product Detail";
   prod: Product = new Product();
   message: string = "";
+  verifyDelete: boolean = false;
+  count: number = 1;
 
   constructor(
     private prodsvc: ProductService,
@@ -49,6 +51,16 @@ export class ProductDetailComponent {
           }
         }
       });
+  }
+
+  clicked(): void {
+    if(this.count % 2 === 1){
+      this.verifyDelete = true;
+    }
+    else{
+      this.verifyDelete = false;
+    }
+    this.count++;
   }
 
 }

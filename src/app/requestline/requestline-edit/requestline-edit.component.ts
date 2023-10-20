@@ -12,6 +12,7 @@ import { RequestLine } from '../requestline.class';
   styleUrls: ['./requestline-edit.component.css']
 })
 export class RequestlineEditComponent {
+  title: string = "Requestline Edit";
   reql: RequestLine = new RequestLine();
   items!: Product[];
    
