@@ -13,7 +13,7 @@
                 <th><button (click)="sortOrder('price')" class="btn btn-link">Price</button></th>
                 <th><button (click)="sortOrder('unit')" class="btn btn-link">Unit</button></th>
                 <th><button (click)="sortOrder('photoPath')" class="btn btn-link">PhotoPath</button></th>
-                <th><button (click)="sortOrder('vendorId')" class="btn btn-link">VendorId</button></th>
+                <th><button (click)="sortOrder('vendorId')" class="btn btn-link">Vendor</button></th>
                 <th *ngIf="userLoggedIn.isAdmin === true">Actions</th>
             </tr>
         </thead>
@@ -25,7 +25,7 @@
                 <td>{{ p.price | currency}}</td>
                 <td>{{ p.unit }}</td>
                 <td>{{ p.photoPath }}</td>
-                <td>{{ p.vendorId }}</td>
+                <td>{{ p.vendor!.name }}</td>
                 <td>
                     <a *ngIf="userLoggedIn.isAdmin === true" routerLink="/product/product-detail/{{ p.id }}">Detail |</a>
                     <a *ngIf="userLoggedIn.isAdmin === true" routerLink="/product/product-edit/{{ p.id }}"> Edit</a>
