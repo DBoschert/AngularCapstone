@@ -13,6 +13,7 @@ import { Request1Service } from '../request.service';
 })
 export class RequestReviewComponent {
 
+  title: string = "Request Review";
   invalid: string = "";
   req!: Request1;
   message: string = "";

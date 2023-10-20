@@ -12,6 +12,7 @@ import { Request1 } from '../request.class';
   styleUrls: ['./request-lines.component.css']
 })
 export class RequestLinesComponent {
+  title: string = "Request Lines";
   req!: Request1;
   message: string = "";
   verifyDelete: boolean = false;
