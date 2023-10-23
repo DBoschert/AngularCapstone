@@ -40,15 +40,18 @@ export class RequestReviewsComponent {
       this.userLoggedIn = this.syssvc.loggedInUser;
       this.reqsvc.getReviews(this.syssvc.loggedInUser.id).subscribe({
         next: (res) => {
-          console.log(res);
+          console.log(res as Request1);
           console.log(this.syssvc.loggedInUser.id);
           this.reqs = res as unknown as Request1[];
+          
         },
         error: (err) => {
           console.error(err);
         }
       });
     }
+
+    
     
 
 }
