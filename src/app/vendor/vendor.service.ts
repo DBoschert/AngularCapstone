@@ -2,15 +2,18 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Vendor } from './vendor.class';
+import { SystemService } from '../user/system.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class VendorService {
 
-  url: string = "http://localhost:2222/api/vendors";
+  // url: string = "http://localhost:2222/api/vendors";
+  get url() { return `${this.sys.config.baseurl}/api/vendors`; }
   
   constructor(
+    private sys: SystemService,
     private http: HttpClient
   ) { }
 

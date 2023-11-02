@@ -3,15 +3,18 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Request1 } from './request.class';
 import { User } from '../user/user.class';
+import { SystemService } from '../user/system.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class Request1Service {
 
-  url: string = "http://localhost:2222/api/requests";
+  // url: string = "http://localhost:2222/api/requests";
+  get url() { return `${this.sys.config.baseurl}/api/requests`; }
 
   constructor(
+    private sys: SystemService,
     private http: HttpClient
   ) { }
 
