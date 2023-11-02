@@ -2,15 +2,18 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Product } from './product.class';
+import { SystemService } from '../user/system.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
 
-  url: string = "http://localhost:2222/api/products";
+  // url: string = "http://localhost:2222/api/products";
+  get url() { return `${this.sys.config.baseurl}/api/products`; }
   
   constructor(
+    private sys: SystemService,
     private http: HttpClient
   ) { }
 
